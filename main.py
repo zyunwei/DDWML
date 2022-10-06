@@ -13,10 +13,10 @@ dim = 123
 
 saved_model = tf.keras.models.load_model('saved_model/2.h5')
 
-testPool = [0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0,
-            0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
-            1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+testPool = [1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0,
+            0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0,
+            0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0,
+            0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0
             ]
 
 print("英雄池：")
@@ -37,7 +37,7 @@ for hero_index, is_exist in enumerate(testPool):
 test_in = np.array(test_in)
 
 clock = time.time()
-#out_list = saved_model.predict(test_in)
+# out_list = saved_model.predict(test_in)
 out_list = saved_model(test_in, training=False)
 
 print(time.time() - clock, 's')
@@ -57,5 +57,5 @@ recommend_count = 0
 for item in result_list:
     print(item)
     recommend_count = recommend_count + 1
-    if recommend_count > 10:
+    if recommend_count > 20:
         break

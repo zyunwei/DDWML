@@ -40,8 +40,7 @@ x_train, x_test, y_train, y_test = train_test_split(sample_in, sample_out, test_
 
 model = Sequential()
 model.add(LSTM(256, input_shape=(2, dim), return_sequences=False))
-model.add(Dropout(0.1))
-model.add(Dense(10, activation="relu"))
+model.add(Dense(10, activation="sigmoid"))
 model.add(Dropout(0.1))
 model.add(Dense(1))
 model.add(Activation('sigmoid'))
@@ -55,4 +54,4 @@ print("eval:")
 mae = model.evaluate(x_test, y_test, verbose=2)
 print(mae)
 
-model.save('saved_model/2.h5', save_format='h5')
+model.save('saved_model/20220907_20221007.h5', save_format='h5')
