@@ -11,7 +11,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 dim = 123
 
-saved_model = tf.keras.models.load_model('saved_model/20220907_20221007.h5')
+saved_model = tf.keras.models.load_model('saved_model/20221001_20221101.h5')
 
 heroScoreList = []
 heroTimesList = []
@@ -71,4 +71,5 @@ for hero_pool in testPoolList:
         heroTimesList[heroIndex] = heroTimesList[heroIndex] + 1
 
 for i in range(0, dim):
-    print(hero_names[i], "\t", round(float(heroScoreList[i] / heroTimesList[i]), 3))
+    if heroTimesList[i] > 0:
+        print(hero_names[i], "\t", round(float(heroScoreList[i] / heroTimesList[i]), 3))
