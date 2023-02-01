@@ -54,4 +54,4 @@ print("eval:")
 mae = model.evaluate(x_test, y_test, verbose=2)
 print(mae)
 
-model.save('saved_model/20221201_20230101.h5', save_format='h5')
+model.save('saved_model/20230101_20230201.h5', save_format='h5')
