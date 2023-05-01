@@ -9,9 +9,9 @@ with open('herolist.json', 'r', encoding='utf-8') as f:
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
-dim = 123
+dim = 124
 
-saved_model = tf.keras.models.load_model('saved_model/20230101_20230201.h5')
+saved_model = tf.keras.models.load_model('saved_model/20230301_20230401.h5')
 
 heroScoreList = []
 heroTimesList = []
