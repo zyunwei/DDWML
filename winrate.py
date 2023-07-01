@@ -11,7 +11,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 dim = 124
 
-saved_model = tf.keras.models.load_model('saved_model/20230501_20230601.h5')
+saved_model = tf.keras.models.load_model('saved_model/20230601_20230701.h5')
 
 heroScoreList = []
 heroTimesList = []
