@@ -9,7 +9,7 @@ with open('herolist.json', 'r', encoding='utf-8') as f:
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
-dim = 124
+dim = 125
 
 saved_model = tf.keras.models.load_model('saved_model/20240701_20240801.h5')
 
