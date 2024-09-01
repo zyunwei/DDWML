@@ -73,3 +73,6 @@ for hero_pool in testPoolList:
 for i in range(0, dim):
     if heroTimesList[i] > 0:
         print(hero_names[i], "\t", round(float(heroScoreList[i] / heroTimesList[i]), 3))
+    else:
+        print(hero_names[i], "\t", 0)
+
