@@ -11,7 +11,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 dim = 125
 
-saved_model = tf.keras.models.load_model('saved_model/20240801_20240901.h5')
+saved_model = tf.keras.models.load_model('saved_model/20240901_20241001.h5')
 
 heroScoreList = []
 heroTimesList = []
@@ -27,7 +27,7 @@ for i in range(1, 1000):
     newArray = []
 
     while totalCount < 32:
-        rnd = np.random.randint(0, dim)
+        rnd = np.random.randint(0, dim + 1)
         if rnd not in newArray:
             newArray.append(rnd)
             totalCount = totalCount + 1
