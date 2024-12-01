@@ -9,14 +9,14 @@ with open('herolist.json', 'r', encoding='utf-8') as f:
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
-dim = 125
+dim = 126
 
 saved_model = tf.keras.models.load_model('saved_model/2.h5')
 
 testPool = [1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0,
             0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0,
             0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0,
-            0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0]
+            0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0]
 
 print("英雄池：")
 for hero_index, is_exist in enumerate(testPool):
