@@ -1,14 +1,10 @@
-import numpy
 import os
-import numpy as np
 import json
-from sklearn.model_selection import train_test_split
+import numpy as np
 
-from keras.models import Sequential
-from keras.layers import Dense
-from keras.layers import Dropout
-from keras.layers import LSTM
-from keras.layers import Activation
+from sklearn.model_selection import train_test_split
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Dropout, LSTM, Activation
 
 with open('herolist.json', 'r', encoding='utf-8') as f:
     hero_data = json.load(f)
@@ -33,8 +29,8 @@ for data_index, line in enumerate(hero_pool):
             else:
                 sample_out.append(0.0)
 
-sample_in = numpy.array(sample_in)
-sample_out = numpy.array(sample_out)
+sample_in = np.array(sample_in)
+sample_out = np.array(sample_out)
 
 x_train, x_test, y_train, y_test = train_test_split(sample_in, sample_out, test_size=0.1, shuffle=True)
 
@@ -54,4 +50,5 @@ print("eval:")
 mae = model.evaluate(x_test, y_test, verbose=2)
 print(mae)
 
-model.save('saved_model/20260101_20260201.h5', save_format='h5')
+date_path = "20260201_20260301"
+model.save("saved_model/" + date_path + ".h5", save_format='h5')
