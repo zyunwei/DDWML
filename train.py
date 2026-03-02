@@ -50,5 +50,19 @@ print("eval:")
 mae = model.evaluate(x_test, y_test, verbose=2)
 print(mae)
 
+import tensorflow as tf
+import tf2onnx
+
 date_path = "20260201_20260301"
-model.save("saved_model/" + date_path + ".h5", save_format='h5')
+h5_path = f"saved_model/{date_path}.h5"
+onnx_path = f"onnx_model/{date_path}.onnx"
+
+model.save(h5_path, save_format='h5')
+spec = (tf.TensorSpec(model.input_shape, tf.float32, name="lstm_input"),)
+model_proto, _ = tf2onnx.convert.from_keras(
+    model,
+    input_signature=spec,
+    opset=15,
+    output_path=onnx_path
+)
+print(f"ONNX 模型已保存至: {onnx_path}")
