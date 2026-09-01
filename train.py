@@ -53,7 +53,7 @@ print(mae)
 import tensorflow as tf
 import tf2onnx
 
-date_path = "20260701_20260801"
+date_path = "20260801_20260901"
 h5_path = f"saved_model/{date_path}.h5"
 onnx_path = f"onnx_model/{date_path}.onnx"
 
